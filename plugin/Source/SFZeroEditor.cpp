@@ -40,6 +40,7 @@ sfzero::SFZeroEditor::SFZeroEditor(SFZeroAudioProcessor *ownerFilter)
   viewport.setViewedComponent(&infoLabel, false);
   infoLabel.setFont(labelFont);
   infoLabel.setJustificationType(Justification::topLeft);
+  infoLabel.setColour(Label::textColourId, Colours::grey);
   infoLabel.addClickListener(this);
   
   addAndMakeVisible(&midiKeyboard);
