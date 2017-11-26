@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FDF76CD5CD6915BBD17689935D581B4CBF4C1230",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "461D2093B66E73D453D7433EE0B9C49EE60B644B" : 9223372036854775807,
+    "FDF76CD5CD6915BBD17689935D581B4CBF4C1230" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E01B2CBC-47DD-4A76-B05C-844D4F1088CB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "461D2093B66E73D453D7433EE0B9C49EE60B644B" : "SFZero\/modules\/SFZero\/",
+    "FDF76CD5CD6915BBD17689935D581B4CBF4C1230" : "SFZero\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SFZero",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "plugin\/Builds\/MacOSX\/SFZero.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/altalogix\/SFZeroModule.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "461D2093B66E73D453D7433EE0B9C49EE60B644B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/imprompt\/SFZero.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FDF76CD5CD6915BBD17689935D581B4CBF4C1230"
+    }
+  ]
+}

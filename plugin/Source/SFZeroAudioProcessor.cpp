@@ -7,7 +7,7 @@ sfzero::SFZeroAudioProcessor::SFZeroAudioProcessor() : loadProgress(0.0), loadTh
 
   for (int i = 0; i < 128; ++i)
   {
-    synth.addVoice(new sfzero::Voice());
+    synth.addVoice(new sfzero::Voice(&formatManager));
   }
 }
 

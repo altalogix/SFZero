@@ -161,8 +161,11 @@ void sfzero::SFZeroEditor::timerCallback()
 
 void sfzero::SFZeroEditor::chooseFile()
 {
+#ifdef JUCE_IOS
+  FileChooser chooser("Select an SFZ file...", File::getSpecialLocation (File::userDocumentsDirectory), "*.sfz;*.SFZ;*.sf2;*.SF2");
+#else*/
   FileChooser chooser("Select an SFZ file...", File::nonexistent, "*.sfz;*.SFZ;*.sf2;*.SF2");
-
+#endif
   if (chooser.browseForFileToOpen())
   {
     File sfzFile(chooser.getResult());
