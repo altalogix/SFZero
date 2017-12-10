@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="ImcWop" name="SFZero" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="com.vsamp.development.SFZero" buildVST="0"
-              buildRTAS="0" buildAU="1" pluginName="SFZero" pluginDesc="SFZero"
-              pluginManufacturer="Malcolm Haylock" pluginManufacturerCode="SFlt"
-              pluginCode="SFZ0" pluginChannelConfigs="{1, 1}, {2, 2}" pluginIsSynth="1"
-              pluginWantsMidiIn="1" pluginProducesMidiOut="0" pluginSilenceInIsSilenceOut="1"
-              pluginTailLength="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="SFZeroAU"
-              pluginAUViewClass="SFZeroAU_V1" pluginRTASCategory="" jucerVersion="5.2.0"
-              defines="" aaxIdentifier="com.yourcompany.SFZero" buildVST3="0"
-              buildAAX="0" pluginIsMidiEffectPlugin="0" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
+              bundleIdentifier="com.vsamp.SFZero" buildVST="0" buildRTAS="0"
+              buildAU="0" pluginName="SFZero" pluginDesc="SFZero" pluginManufacturer="Malcolm Haylock"
+              pluginManufacturerCode="SFlt" pluginCode="SFZ0" pluginChannelConfigs="{0, 1}, {0, 2}"
+              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
+              pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="SFZeroAU" pluginAUViewClass="SFZeroAU_V1"
+              pluginRTASCategory="" jucerVersion="5.2.0" defines="" aaxIdentifier="com.yourcompany.SFZero"
+              buildVST3="0" buildAAX="0" pluginIsMidiEffectPlugin="0" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" buildAUv3="0" buildStandalone="0" enableIAA="0"
+              splashScreenColour="Dark" buildAUv3="1" buildStandalone="1" enableIAA="0"
               cppLanguageStandard="11" companyCopyright="">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="yKK8uA" vstFolder="../../SDKs/vstsdk2.4"
@@ -42,7 +41,9 @@
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
                   iPadScreenOrientation="portraitlandscape" iosDeviceFamily="1,2"
-                  iosDevelopmentTeamID="" microphonePermissionNeeded="1" UIFileSharingEnabled="1">
+                  iosDevelopmentTeamID="" microphonePermissionNeeded="0" UIFileSharingEnabled="1"
+                  customXcodeResourceFolders="" iosAppExtensionDuplicateResourcesFolder="0"
+                  iosAppGroups="1" iosAppGroupsId="group.com.vsamp.SFZero">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" enablePluginBinaryCopyStep="1" isDebug="1" optimisation="1"
                        linkTimeOptimisation="0" targetName="SFZero"/>
@@ -79,6 +80,21 @@
       <FILE id="IxDO9a" name="SFZeroEditor.cpp" compile="1" resource="0"
             file="Source/SFZeroEditor.cpp"/>
       <FILE id="uE896w" name="SFZeroEditor.h" compile="0" resource="0" file="Source/SFZeroEditor.h"/>
+      <FILE id="scxqjj" name="SFZeroEditorList.cpp" compile="1" resource="0"
+            file="Source/SFZeroEditorList.cpp"/>
+      <FILE id="lqHnYm" name="SFZeroEditorList.h" compile="0" resource="0"
+            file="Source/SFZeroEditorList.h"/>
+      <FILE id="eqDnse" name="SFZeroFileBrowserLookAndFeel.cpp" compile="1"
+            resource="0" file="Source/SFZeroFileBrowserLookAndFeel.cpp"/>
+      <FILE id="EYry6G" name="SFZeroFileBrowserLookAndFeel.h" compile="0"
+            resource="0" file="Source/SFZeroFileBrowserLookAndFeel.h"/>
+      <FILE id="cAnLl4" name="SFZeroFileList.cpp" compile="1" resource="0"
+            file="Source/SFZeroFileList.cpp"/>
+      <FILE id="hZ0GBO" name="SFZeroFileList.h" compile="0" resource="0"
+            file="Source/SFZeroFileList.h"/>
+      <FILE id="CXbC4D" name="SFZeroFolders.h" compile="0" resource="0" file="Source/SFZeroFolders.h"/>
+      <FILE id="wt9eo2" name="SFZeroFolders.mm" compile="1" resource="0"
+            file="Source/SFZeroFolders.mm"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

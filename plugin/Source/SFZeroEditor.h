@@ -43,7 +43,9 @@ protected:
   int showing, showingInfo;
   MidiKeyboardComponent midiKeyboard;
   ProgressBar *progressBar;
-
+  bool isAU;
+  File groupFolder;
+  
   SFZeroAudioProcessor *getProcessor() const { return static_cast<SFZeroAudioProcessor *>(getAudioProcessor()); }
   void chooseFile();
   void setFile(File *newFile);

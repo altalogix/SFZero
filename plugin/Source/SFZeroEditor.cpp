@@ -1,5 +1,6 @@
 #include "SFZeroEditor.h"
 #include "SFZeroAudioProcessor.h"
+#include "SFZeroFolders.h"
 
 enum
 {
@@ -45,6 +46,8 @@ sfzero::SFZeroEditor::SFZeroEditor(SFZeroAudioProcessor *ownerFilter)
   addAndMakeVisible(&midiKeyboard);
   midiKeyboard.setOctaveForMiddleC(4);
 
+  groupFolder = SFZeroFolders::GetGroupFolder();
+  
   startTimer(200);
 
   File sfzFile = ownerFilter->getSfzFile();
@@ -163,7 +166,7 @@ void sfzero::SFZeroEditor::chooseFile()
 {
 #ifdef JUCE_IOS
   FileChooser chooser("Select an SFZ file...", File::getSpecialLocation (File::userDocumentsDirectory), "*.sfz;*.SFZ;*.sf2;*.SF2");
-#else*/
+#else
   FileChooser chooser("Select an SFZ file...", File::nonexistent, "*.sfz;*.SFZ;*.sf2;*.SF2");
 #endif
   if (chooser.browseForFileToOpen())
@@ -175,6 +178,18 @@ void sfzero::SFZeroEditor::chooseFile()
 
 void sfzero::SFZeroEditor::setFile(File *newFile)
 {
+  bool result=false;
+  if(!isAU){
+    if(true){
+      File parentDir = newFile->getParentDirectory();
+      juce::String dest=groupFolder.getFullPathName()+"/"+parentDir.getFileName();
+      result=parentDir.copyDirectoryTo(dest);
+    }
+    else{
+      juce::String dest=groupFolder.getFullPathName()+"/"+newFile->getFileName();
+      result=newFile->copyFileTo(File(dest));
+    }
+  }
   auto processor = getProcessor();
 
   processor->setSfzFileThreaded(newFile);

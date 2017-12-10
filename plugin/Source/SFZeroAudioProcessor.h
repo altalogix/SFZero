@@ -32,8 +32,8 @@ public:
   const String getParameterName(int index) override;
   const String getParameterText(int index) override;
 
-  void setSfzFile(File *newSfzFile);
-  void setSfzFileThreaded(File *newSfzFile);
+  void setSfzFile(const File *newSfzFile);
+  void setSfzFileThreaded(const File *newSfzFile);
 
   File getSfzFile() { return (sfzFile); }
   bool acceptsMidi() const override;
@@ -54,6 +54,10 @@ public:
   Sound *getSound();
   int numVoicesUsed();
   String voiceInfoString();
+  /*bool isBusesLayoutSupported (const BusesLayout& layouts) const override
+  {
+    return (layouts.getMainOutputChannels() == 2);
+  }*/
 
 protected:
 
