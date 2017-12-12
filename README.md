@@ -9,6 +9,6 @@ Please note that, in order to build, SFZero requires [Juce](http://www.juce.com)
 
 Before building the sample plugin, it's necessary to
 
-* for iOS under XCode, ensure AppExtension and STanalone are both given the same group ID. 
+* for iOS under XCode, ensure AppExtension and Standalone are both given the same group ID. 
 
 See altalogix repo for more info on building 
