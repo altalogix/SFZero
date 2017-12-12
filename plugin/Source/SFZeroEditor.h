@@ -4,61 +4,22 @@
 #include "JuceHeader.h"
 #include "ClickableLabel.h"
 #include "SFZeroAudioProcessor.h"
+#include "SFZeroEditorBase.h"
 
 namespace sfzero
 {
-
-class SFZeroEditor : public AudioProcessorEditor, public Timer, public ClickableLabel::ClickListener
-{
-public:
-  SFZeroEditor(SFZeroAudioProcessor *ownerFilter);
-  ~SFZeroEditor();
-
-  void paint(Graphics &g) override;
-  void resized() override;
-  void labelClicked(Label *clickedLabel) override;
-  void timerCallback() override;
-
-protected:
-  // pathLabel options.
-  enum
+  class SFZeroEditor : public SFZeroEditorBase
   {
-    showingVersion,
-    showingPath,
-    showingProgress,
-    showingSubsound,
-  };
+  public:
+    SFZeroEditor(SFZeroAudioProcessor *ownerFilter);
+    ~SFZeroEditor();
 
-  // infoLabel options.
-  enum
-  {
-    showingSoundInfo,
-    showingVoiceInfo,
-  };
+    void paint(Graphics &g) override;
+    void resized() override;
 
-  ClickableLabel fileLabel;
-  ClickableLabel pathLabel;
-  ClickableLabel infoLabel;
-  Viewport viewport;
-  int showing, showingInfo;
-  MidiKeyboardComponent midiKeyboard;
-  ProgressBar *progressBar;
-  bool isAU;
-  File groupFolder;
-  
-  SFZeroAudioProcessor *getProcessor() const { return static_cast<SFZeroAudioProcessor *>(getAudioProcessor()); }
-  void chooseFile();
-  void setFile(File *newFile);
-  void updateFile(File *file);
-  void showSoundInfo();
-  void showVoiceInfo();
-  void showVersion();
-  void showPath();
-  void showProgress();
-  void hideProgress();
-  void showSubsound();
-};
+  protected:
+    Viewport viewport;
+  };
 }
-
 
 #endif // INCLUDED_SFZEROEDITOR_H

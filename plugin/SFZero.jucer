@@ -69,6 +69,10 @@
   </EXPORTFORMATS>
   <MAINGROUP id="STGh0u" name="SFZero">
     <GROUP id="{1110531B-E755-9964-D428-0B0E27C2D745}" name="Source">
+      <FILE id="Ez5T0x" name="SFZeroEditorBase.cpp" compile="1" resource="0"
+            file="Source/SFZeroEditorBase.cpp"/>
+      <FILE id="fwB0Tu" name="SFZeroEditorBase.h" compile="0" resource="0"
+            file="Source/SFZeroEditorBase.h"/>
       <FILE id="onAAbD" name="ClickableLabel.cpp" compile="1" resource="0"
             file="Source/ClickableLabel.cpp"/>
       <FILE id="lQwIPH" name="ClickableLabel.h" compile="0" resource="0"
@@ -88,10 +92,6 @@
             resource="0" file="Source/SFZeroFileBrowserLookAndFeel.cpp"/>
       <FILE id="EYry6G" name="SFZeroFileBrowserLookAndFeel.h" compile="0"
             resource="0" file="Source/SFZeroFileBrowserLookAndFeel.h"/>
-      <FILE id="cAnLl4" name="SFZeroFileList.cpp" compile="1" resource="0"
-            file="Source/SFZeroFileList.cpp"/>
-      <FILE id="hZ0GBO" name="SFZeroFileList.h" compile="0" resource="0"
-            file="Source/SFZeroFileList.h"/>
       <FILE id="CXbC4D" name="SFZeroFolders.h" compile="0" resource="0" file="Source/SFZeroFolders.h"/>
       <FILE id="wt9eo2" name="SFZeroFolders.mm" compile="1" resource="0"
             file="Source/SFZeroFolders.mm"/>
