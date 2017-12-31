@@ -4,35 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SFZero - AU.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>SFZero - All.xcscheme</key>
+		<key>SFZero.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>SFZero - Shared Code.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>48420725543B7DFF959FFB25</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6E71FB8424F672ECAB219872</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>92ABD69A68897AED7CA05549</key>
+		<key>68D3E077E89ACC1C0C54C628</key>
 		<dict>
 			<key>primary</key>
 			<true/>
