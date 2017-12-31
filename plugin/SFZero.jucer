@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="ImcWop" name="SFZero" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="net.folta.steve.SFZero" buildVST="1" buildRTAS="0"
-              buildAU="1" pluginName="SFZero" pluginDesc="SFZero" pluginManufacturer="Steve Folta"
-              pluginManufacturerCode="SFlt" pluginCode="SFZ0" pluginChannelConfigs="{1, 1}, {2, 2}"
-              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
+              bundleIdentifier="com.vsamp.SFZero" buildVST="0" buildRTAS="0"
+              buildAU="0" pluginName="SFZero" pluginDesc="SFZero" pluginManufacturer="Malcolm Haylock"
+              pluginManufacturerCode="SFlt" pluginCode="SFZ0" pluginChannelConfigs="{0, 1}, {0, 2}"
+              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="SFZeroAU" pluginAUViewClass="SFZeroAU_V1"
-              pluginRTASCategory="" jucerVersion="4.1.0" defines="" aaxIdentifier="com.yourcompany.SFZero"
+              pluginRTASCategory="" jucerVersion="5.2.0" defines="" aaxIdentifier="com.yourcompany.SFZero"
               buildVST3="0" buildAAX="0" pluginIsMidiEffectPlugin="0" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              includeBinaryInAppConfig="1">
+              includeBinaryInAppConfig="1" displaySplashScreen="1" reportAppUsage="1"
+              splashScreenColour="Dark" buildAUv3="1" buildStandalone="1" enableIAA="0"
+              cppLanguageStandard="11" companyCopyright="">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="yKK8uA" vstFolder="../../SDKs/vstsdk2.4"
-               postbuildCommand="&#13;&#10;# This script takes the build product and copies it to the AU, VST, VST3, RTAS and AAX folders, depending on &#13;&#10;# which plugin types you've built&#13;&#10;&#13;&#10;original=$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME&#13;&#10;&#13;&#10;# this looks inside the binary to detect which platforms are needed.. &#13;&#10;copyAU=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'AudioUnit' | wc -l&#96;&#13;&#10;copyVST=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'VSTPlugin' | wc -l&#96;&#13;&#10;copyVST3=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'GetPluginFactory' | wc -l&#96;&#13;&#10;copyRTAS=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'CProcess' | wc -l&#96;&#13;&#10;copyAAX=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'ACFStartup' | wc -l&#96;&#13;&#10;&#13;&#10;if [ $copyAU -gt 0 ]; then&#13;&#10;  echo &quot;Copying to AudioUnit folder...&quot;&#13;&#10;  AUDir=~/Library/Audio/Plug-Ins/Components&#13;&#10;  mkdir -p &quot;$AUDir&quot;&#13;&#10;  AU=$AUDir/$PRODUCT_NAME.component&#13;&#10;  if [ -d &quot;$AU&quot; ]; then &#13;&#10;    rm -r &quot;$AU&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$AU&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$AU/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$AU/Contents/$INFOPLIST_FILE&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyVST -gt 0 ]; then&#13;&#10;  echo &quot;Copying to VST folder...&quot;&#13;&#10;  VSTDir=~/Library/Audio/Plug-Ins/VST&#13;&#10;  mkdir -p &quot;$VSTDir&quot;&#13;&#10;  VST=$VSTDir/$PRODUCT_NAME.vst&#13;&#10;  if [ -d &quot;$VST&quot; ]; then &#13;&#10;    rm -r &quot;$VST&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$VST&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$VST/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$VST/Contents/$INFOPLIST_FILE&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyVST3 -gt 0 ]; then&#13;&#10;  echo &quot;Copying to VST3 folder...&quot;&#13;&#10;  VST3Dir=~/Library/Audio/Plug-Ins/VST3&#13;&#10;  mkdir -p &quot;$VST3Dir&quot;&#13;&#10;  VST3=$VST3Dir/$PRODUCT_NAME.vst3&#13;&#10;  if [ -d &quot;$VST3&quot; ]; then &#13;&#10;    rm -r &quot;$VST3&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$VST3&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$VST3/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$VST3/Contents/$INFOPLIST_FILE&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyRTAS -gt 0 ]; then&#13;&#10;  echo &quot;Copying to RTAS folder...&quot;&#13;&#10;  RTASDir=/Library/Application\ Support/Digidesign/Plug-Ins&#13;&#10;  if [ -d &quot;$RTASDir&quot; ]; then&#13;&#10;    RTAS=$RTASDir/$PRODUCT_NAME.dpm&#13;&#10;    if [ -d &quot;$RTAS&quot; ]; then&#13;&#10;      rm -r &quot;$RTAS&quot;&#13;&#10;    fi&#13;&#10;&#13;&#10;    cp -r &quot;$original&quot; &quot;$RTAS&quot;&#13;&#10;  fi&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyAAX -gt 0 ]; then&#13;&#10;  echo &quot;Copying to AAX folder...&quot;&#13;&#10;&#13;&#10;  if [ -d &quot;/Applications/ProTools_3PDev/Plug-Ins&quot; ]; then&#13;&#10;    AAX1=&quot;/Applications/ProTools_3PDev/Plug-Ins/$PRODUCT_NAME.aaxplugin&quot;&#13;&#10;&#13;&#10;    if [ -d &quot;$AAX1&quot; ]; then&#13;&#10;      rm -r &quot;$AAX1&quot;&#13;&#10;    fi&#13;&#10;&#13;&#10;    cp -R -H &quot;$original&quot; &quot;$AAX1&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  if [ -d &quot;/Library/Application Support/Avid/Audio/Plug-Ins&quot; ]; then&#13;&#10;    AAX2=&quot;/Library/Application Support/Avid/Audio/Plug-Ins/$PRODUCT_NAME.aaxplugin&quot;&#13;&#10;&#13;&#10;    if [ -d &quot;$AAX2&quot; ]; then&#13;&#10;      rm -r &quot;$AAX2&quot;&#13;&#10;    fi&#13;&#10;&#13;&#10;    cp -R -H &quot;$original&quot; &quot;$AAX2&quot;&#13;&#10;  fi&#13;&#10;fi&#13;&#10;">
+               postbuildCommand="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SFZero"
-                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"/>
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       enablePluginBinaryCopyStep="1"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="SFZero"
-                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"/>
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       enablePluginBinaryCopyStep="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../modules"/>
@@ -35,35 +39,16 @@
         <MODULEPATH id="SFZero" path="../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <LINUX_MAKE targetFolder="Builds/Linux" vstFolder="../../SDKs/vstsdk2.4">
+    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape"
+                  iPadScreenOrientation="portraitlandscape" iosDeviceFamily="1,2"
+                  iosDevelopmentTeamID="" microphonePermissionNeeded="0" UIFileSharingEnabled="1"
+                  customXcodeResourceFolders="" iosAppExtensionDuplicateResourcesFolder="0"
+                  iosAppGroups="1" iosAppGroupsId="group.com.vsamp.SFZero">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
-                       targetName="SFZero"/>
-        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="2"
-                       targetName="SFZero"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../modules"/>
-        <MODULEPATH id="juce_graphics" path="../modules"/>
-        <MODULEPATH id="juce_events" path="../modules"/>
-        <MODULEPATH id="juce_data_structures" path="../modules"/>
-        <MODULEPATH id="juce_core" path="../modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../modules"/>
-        <MODULEPATH id="SFZero" path="../modules"/>
-      </MODULEPATHS>
-    </LINUX_MAKE>
-    <VS2015 targetFolder="Builds/VisualStudio2015" vstFolder="">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="SFZero"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="SFZero"/>
+        <CONFIGURATION name="Debug" enablePluginBinaryCopyStep="1" isDebug="1" optimisation="1"
+                       linkTimeOptimisation="0" targetName="SFZero"/>
+        <CONFIGURATION name="Release" enablePluginBinaryCopyStep="1" isDebug="0" optimisation="3"
+                       linkTimeOptimisation="1" targetName="SFZero"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="SFZero" path="../modules"/>
@@ -80,10 +65,14 @@
         <MODULEPATH id="juce_audio_devices" path="../modules"/>
         <MODULEPATH id="juce_audio_basics" path="../modules"/>
       </MODULEPATHS>
-    </VS2015>
+    </XCODE_IPHONE>
   </EXPORTFORMATS>
   <MAINGROUP id="STGh0u" name="SFZero">
     <GROUP id="{1110531B-E755-9964-D428-0B0E27C2D745}" name="Source">
+      <FILE id="Ez5T0x" name="SFZeroEditorBase.cpp" compile="1" resource="0"
+            file="Source/SFZeroEditorBase.cpp"/>
+      <FILE id="fwB0Tu" name="SFZeroEditorBase.h" compile="0" resource="0"
+            file="Source/SFZeroEditorBase.h"/>
       <FILE id="onAAbD" name="ClickableLabel.cpp" compile="1" resource="0"
             file="Source/ClickableLabel.cpp"/>
       <FILE id="lQwIPH" name="ClickableLabel.h" compile="0" resource="0"
@@ -95,22 +84,34 @@
       <FILE id="IxDO9a" name="SFZeroEditor.cpp" compile="1" resource="0"
             file="Source/SFZeroEditor.cpp"/>
       <FILE id="uE896w" name="SFZeroEditor.h" compile="0" resource="0" file="Source/SFZeroEditor.h"/>
+      <FILE id="scxqjj" name="SFZeroEditorList.cpp" compile="1" resource="0"
+            file="Source/SFZeroEditorList.cpp"/>
+      <FILE id="lqHnYm" name="SFZeroEditorList.h" compile="0" resource="0"
+            file="Source/SFZeroEditorList.h"/>
+      <FILE id="eqDnse" name="SFZeroFileBrowserLookAndFeel.cpp" compile="1"
+            resource="0" file="Source/SFZeroFileBrowserLookAndFeel.cpp"/>
+      <FILE id="EYry6G" name="SFZeroFileBrowserLookAndFeel.h" compile="0"
+            resource="0" file="Source/SFZeroFileBrowserLookAndFeel.h"/>
+      <FILE id="CXbC4D" name="SFZeroFolders.h" compile="0" resource="0" file="Source/SFZeroFolders.h"/>
+      <FILE id="wt9eo2" name="SFZeroFolders.mm" compile="1" resource="0"
+            file="Source/SFZeroFolders.mm"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
-    <MODULE id="SFZero" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="SFZero" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_USE_OGGVORBIS="enabled"/>
 </JUCERPROJECT>

@@ -1,13 +1,15 @@
 #include "SFZeroAudioProcessor.h"
 #include "SFZeroEditor.h"
+#include "SFZeroEditorList.h"
 
 sfzero::SFZeroAudioProcessor::SFZeroAudioProcessor() : loadProgress(0.0), loadThread(this)
+//sfzero::SFZeroAudioProcessor::SFZeroAudioProcessor() : AudioProcessor (BusesProperties().withOutput ("Output", AudioChannelSet::stereo(), true)),loadProgress(0.0), loadThread(this)
 {
   formatManager.registerBasicFormats();
 
   for (int i = 0; i < 128; ++i)
   {
-    synth.addVoice(new sfzero::Voice());
+    synth.addVoice(new sfzero::Voice(&formatManager, synth.GetCleaner()));
   }
 }
 
@@ -19,13 +21,13 @@ void sfzero::SFZeroAudioProcessor::setParameter(int /*index*/, float /*newValue*
 const String sfzero::SFZeroAudioProcessor::getParameterName(int /*index*/) { return String::empty; }
 const String sfzero::SFZeroAudioProcessor::getParameterText(int /*index*/) { return String::empty; }
 
-void sfzero::SFZeroAudioProcessor::setSfzFile(File *newSfzFile)
+void sfzero::SFZeroAudioProcessor::setSfzFile(const File *newSfzFile)
 {
   sfzFile = *newSfzFile;
   loadSound();
 }
 
-void sfzero::SFZeroAudioProcessor::setSfzFileThreaded(File *newSfzFile)
+void sfzero::SFZeroAudioProcessor::setSfzFileThreaded(const File *newSfzFile)
 {
   loadThread.stopThread(2000);
   sfzFile = *newSfzFile;
@@ -36,7 +38,6 @@ bool sfzero::SFZeroAudioProcessor::acceptsMidi() const
 {
 #if JucePlugin_WantsMidiInput
   return true;
-
 #else
   return false;
 #endif
@@ -46,7 +47,6 @@ bool sfzero::SFZeroAudioProcessor::producesMidi() const
 {
 #if JucePlugin_ProducesMidiOutput
   return true;
-
 #else
   return false;
 #endif
@@ -84,7 +84,12 @@ bool sfzero::SFZeroAudioProcessor::hasEditor() const
   return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor *sfzero::SFZeroAudioProcessor::createEditor() { return new SFZeroEditor(this); }
+AudioProcessorEditor *sfzero::SFZeroAudioProcessor::createEditor() {
+  if(SystemStats::isRunningInAppExtensionSandbox())
+    return new SFZeroEditorList(this);
+  else
+    return new SFZeroEditor(this);
+}
 
 void sfzero::SFZeroAudioProcessor::getStateInformation(MemoryBlock &destData)
 {
